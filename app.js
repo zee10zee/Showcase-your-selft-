@@ -57,7 +57,7 @@ var usersRoute =  require("./routes/users");
 var app = express();
 
 
-mongoose.connect(DATABASE_URL, 
+mongoose.connect(process.env.DATABASE_URL, 
 { useUnifiedTopology: true , useNewUrlParser : true} );
 
 app.locals.moment = require("moment");
