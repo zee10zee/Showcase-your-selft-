@@ -1,0 +1,29 @@
+<%- include("../../partials/header"); %>
+
+<form action="/editProfile/<%= user._id %>/edit?_method=PATCH" class="loginForm" method="POST">
+        <h2>update <%= user.username %> profile</h2>
+    <div class="form-group">
+        <input type="text" class="form-control" value="<%= user.username %>"  name="username" autocomplete="off" required>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" value="<%= user.firstName %>"  name="firstName" autocomplete="off" required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" value="<%= user.lastName %>" name="lastName" autocomplete="off" required>
+    </div>
+
+    <div class="form-group">
+        <input type="email" class="form-control" value="<%= user.email %>" name="email" autocomplete="off" required>
+    </div>
+
+    <div class="form-group">
+        <input type="text" class="form-control" value="<%= user.avatar %>" name="avatar" autocomplete="off" required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" value="<%= user.coverPhoto %>" name="cover" autocomplete="off" required>
+    </div>
+    <button class="btn btn-success m-1">Save</button><a class="btn btn-warning" href="/user/<%= user._id %>">Cancel</a>
+</form>
+
+<%- include("../../partials/footer"); %>

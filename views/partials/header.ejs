@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/main.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font family -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates&display=swap" rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- ui semantic cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"/>
+    <title>Chat App continuouse ..</title>
+    <script  defer src="https://js.stripe.com/v3/"></script>
+    <script  defer src="/scripts/checkout.js"></script>
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top " style="margin-bottom: 100px;">
+        <a class="navbar-brand" href="/posts" style="font-family: 'Indie Flower', cursive;">ChatApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse mt-3" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item btn btn-light active ">
+              <a class="nav-link text-secondary " href="/posts/new"> New Post <i class="fa fa-plus "></i></a>
+            </li>
+           -->
+           <a class="btn btn-success btn btn-lg" href="/posts/new"> New Post <i class="fa fa-plus "></i></a>
+          </ul>
+          <% if(!currentUser) {%>
+          <li class="nav-item">
+            <a class="nav-link " href="/register" aria-="true"><i class="fa fa-user-plus"></i> Sign up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/login"  aria-="true"><i class="fa fa-user"></i> Login</a>
+          </li>
+          <% }else{ %>
+
+          
+          <li class="nav-item">
+            <a class="nav-link " href="/logout"  aria-disabled="true"> Log out <i class="fa fa-sign-out"></i></a>
+          </li>
+
+          
+          <li class="nav-item d-inline"><strong>Sign in as <%= currentUser.username %></strong>
+            <a class="nav-link d-inline" href="/user/<%=currentUser.id%>"  aria-disabled="true"><img class="user-profile-img d-inline" src="<%= currentUser.avatar %>"></a>
+          </li>
+          <%}%>
+        </div>
+      </nav>
+
+
+      <!-- alert error -->
+       <div class="container mt-4">
+         <% if(error && error.length > 0) { %>
+             <div class="alert alert-danger"> 
+               <p class="text-center"> <%= error %></p>
+              </div>
+         <% } %>
+
+          <% if(success && success.length > 0 ) { %>
+            <div class="alert alert-success"> 
+                 <p class="text-center"><%= success %></p>
+            </div>
+          <% } %>
+
+       </div>
+
+

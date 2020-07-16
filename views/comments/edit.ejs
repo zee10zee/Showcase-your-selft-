@@ -1,0 +1,17 @@
+
+
+  <%- include("../partials/header"); %>
+
+  <div class="container margintop fit-form-container">
+  <form action="/posts/show/<%= post_id %>/comments/<%= comment._id %>/update?_method=PUT" method="POST" class="fit-form">
+     <div class="form-group">
+       <input type="text" placeholder="the comment" name="text" class="form-control" value="<%= comment.text %>">
+     </div>
+
+    <div class="form-group">
+     <button class="btn btn-success">Save</button>
+    </div>
+  </form>
+  </div>
+
+ <%- include("../partials/footer"); %>

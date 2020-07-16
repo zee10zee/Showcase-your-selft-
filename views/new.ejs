@@ -1,0 +1,32 @@
+ 
+  <%- include("partials/header"); %>
+
+   <div class="container margintop">
+       <form action="/posts/new" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+              <label for="title"><h3>Title</h3></label>       
+              <input type="text" placeholder="place the tile here !" name="title" required  class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="image"><h3>Image</h3></label>       
+            <input type="file" placeholder="upload your image !" name="image" accept="image/*"  required class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="content"><h3>Description</h3></label>       
+           <textarea name="content" id="content" cols="30" rows="6" class="form-control" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input class="form-control" type="number" name="price" id="price" placeholder="price" >
+        </div>
+        
+        <div class="form-group">
+           <input type="submit" class="btn btn-success" value="Save">
+        </div>
+       </form>
+   </div>
+
+  <%- include("partials/footer"); %>

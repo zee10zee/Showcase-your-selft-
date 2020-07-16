@@ -1,0 +1,38 @@
+<%- include("partials/header"); %>
+    
+ <div class="container" style="margin-top: 100px;">
+         <!-- jumbotron -->
+         <div class="jumbotron container">
+            <h3 class="display-4 lead">Welcome to My Nameless App !</h3>
+            <div class="createNew">
+                 
+            </div>
+          <form action="/posts" method="GET" class="searchForm">
+            <div class="form-group d-flex mt-3 text-center">
+               <input type="text" placeholder="Search post .." name="search" class="form-control">
+               <button class="form-control align-items-center" style="height: 40px;"><i class="fa fa-search"></i></button>
+            </div>
+           </form>
+         </div>
+    <div class="row my-3">
+<% posts.forEach((post)=>{ %>
+   <div class="col-md-3">
+      <div class="card home-card">
+         <img src="<%= post.image %>" class="card-img-top" alt="...">
+         <div class="card-body">
+           <h5 class="card-title"><%= post.title %></h5>
+           <p class="card-text"><%- post.content.substring(0, 50); %></p>
+           <a href="/posts/show/<%= post._id %>" class="btn btn-primary"> Read more..</a>
+         
+         </div>
+       </div>
+   </div>
+   
+<% }) %>
+</div>
+</div>
+
+<%- include("partials/footer"); %>
+
+
+

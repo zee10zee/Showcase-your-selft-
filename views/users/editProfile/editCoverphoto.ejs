@@ -1,0 +1,12 @@
+
+<%- include("../../partials/header"); %>
+
+   <form action="/editName/<%= user._id %>/edit?_method=PUT" method="POST" class="loginForm">
+           <h2 class="lead">Edit your coverPhoto!</h2>
+         <div class="form-group">
+             <input type="text" class="form-control" value="<%=user.coverPhoto %>" name="cover" autofocus = "on">
+             <button class="btn btn-block btn-success">Save</button>
+         </div>
+   </form>
+
+<%- include("../../partials/footer"); %>

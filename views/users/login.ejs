@@ -1,0 +1,18 @@
+<%- include("../partials/header"); %>
+
+<form action="/login" class="loginForm  margintop" method="post">
+    <h2>Login form!</h2>
+   <div class="form-group">
+       <input type="text" class="form-control" placeholder="username" name="username" autocomplete="off" required>
+   </div>
+   <div class="form-group">
+    <input type="password" class="form-control" placeholder="password" name="password" autocomplete="off" required>
+</div>
+<div class="form-group">
+  <button class="btn btn-primary brn-block">Login</button>
+  <a class="pull-right" href="/forgotPass">forgot Password</a>
+</div>
+<a href="/register">not registered?</a>
+</form>
+
+<%- include("../partials/footer"); %>
