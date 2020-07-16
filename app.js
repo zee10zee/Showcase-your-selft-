@@ -57,7 +57,7 @@ var usersRoute =  require("./routes/users");
 var app = express();
 
 
-mongoose.connect("mongodb+srv://abedkhan:zohrajan@neworigin.ocwek.mongodb.net/chatAppDB", 
+mongoose.connect(DATABASE_URL, 
 { useUnifiedTopology: true , useNewUrlParser : true} );
 
 app.locals.moment = require("moment");
