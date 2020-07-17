@@ -52,13 +52,22 @@ var notifications = require("./models/notifications");
 var postsRoutes =  require("./routes/posts");
 var commentsRoutes =  require("./routes/comments");
 var usersRoute =  require("./routes/users");
+const { mongo } = require('mongoose');
 
 
 var app = express();
 
 
-mongoose.connect(process.env.DATABASE_URL, 
-{ useUnifiedTopology: true , useNewUrlParser : true} );
+mongoose.connect(
+    "mongodb+srv://abedkhan:zohrajan@neworigin.ocwek.mongodb.net/chatAppDB", 
+{ useUnifiedTopology: true , useNewUrlParser : true});
+
+const db = mongoose.connection;
+db.on('error', (error)=>{
+     console.log(error);
+})
+
+db.once("open", ()=>{ console.log("connected !")})
 
 app.locals.moment = require("moment");
 
