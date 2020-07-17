@@ -58,15 +58,16 @@ const { mongo } = require('mongoose');
 var app = express();
 
 
-mongoose.connect(
-    "mongodb+srv://abedkhan:zohrajan@neworigin.ocwek.mongodb.net/chatAppDB", 
+// mongoose.connect("mongodb://localhost/chatAppDB", 
+// { useUnifiedTopology: true , useNewUrlParser : true});
+
+mongoose.connect(process.env.DATABASE_URL, 
 { useUnifiedTopology: true , useNewUrlParser : true});
 
 const db = mongoose.connection;
 db.on('error', (error)=>{
-     console.log(error);
+     console.log("the problem is " +  error);
 })
-
 db.once("open", ()=>{ console.log("connected !")})
 
 app.locals.moment = require("moment");
@@ -99,7 +100,7 @@ passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
 // locals
-app.use(async function(req, res, next){
+app.use(function(req, res, next){
    res.locals.currentUser = req.user; 
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
@@ -123,4 +124,6 @@ app.get("/", (req, res)=>{
 
 
 
-app.listen(process.env.PORT || 3000);
+app.listen(3000 || process.env.PORT, ()=>{
+    console.log("you good to go! 3000")
+});
