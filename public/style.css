@@ -18,8 +18,9 @@ nav.navbar {
     background-color: lightblue !important;
 }
 
-.navbar-brand { 
+nav #navbar .navbar-brand { 
     font-family: 'Montserrat Alternates', sans-serif !important;
+    font-size: 45px;
 }
 
 .nav-link{
@@ -88,7 +89,6 @@ nav.navbar {
     width: 250px;
     height: 40px !important;
 }
-.user-posts .card img
 
 .searchForm button{
     width: 40px;
@@ -197,4 +197,8 @@ input[type="file"]{
 
 .margintop{
     margin-top: 100px;
+}
+
+
+.card.home-card{
 }
